@@ -12,11 +12,11 @@
   * Copy your Delicious bookmarks file into the repo folder
   * Edit `delicious_to_evernote.rb` to set `$in_filename` to that of the Delicious bookmarks file
   * Open a command shell in the repo folder and run:
-    ```sh
-    gem install bundler
-    bundle install
-    bundle exec ruby delicious_to_evernote.rb
-	```
+  ```sh
+  gem install bundler
+  bundle install
+  bundle exec ruby delicious_to_evernote.rb
+  ```
   * This creates the Evernote bookmarks file `Evernote.enex`
 3. Import your Evernote bookmarks
   * Download and install the Evernote application (I used the Windows client)
