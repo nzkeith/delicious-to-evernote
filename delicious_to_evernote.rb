@@ -68,7 +68,7 @@ def parse_a(a)
   raise "'A' tag has unexpected format: #{a.inspect}" if match.nil?
   url = match[1].strip
   add_date = Time.at(match[2].strip.to_i)
-  tags = match[3].strip.split(',').each { |tag| remove_bad_substrings(tag) }
+  tags = match[3].strip.split(',').reject(&:empty?).each { |tag| remove_bad_substrings(tag) }
   title = remove_bad_substrings(match[4].strip)
   raise "title is empty: #{a.inspect}" if title.empty?
   [url, add_date, tags, title]
