@@ -5,12 +5,15 @@
 1. Export your Delicious bookmarks
   * Open *Profile > Settings > Export*
   * Ensure *Include My Tags* and *Include My Notes* are checked
-  * Select *Export* to download your Delicious bookmarks file
+  * Select *Export* to download your Delicious bookmarks export file
 
 2. Convert your Delicious bookmarks into Evernote bookmarks
   * Install Ruby - I used version **2.4.3** (2.4 or later should work, earlier versions probably won't)
-  * Clone this repo
-  * Open a command shell in the repo folder and run:
+  * Clone this repo:
+    ```
+    git clone https://github.com/nzkeith/delicious-to-evernote.git
+    ```
+  * Open a shell in the repo folder and run:
     ```
     gem install bundler
     bundle install
