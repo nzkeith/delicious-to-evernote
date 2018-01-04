@@ -70,13 +70,13 @@ def process_fragment(fragment)
 end
 
 def parse_a(a)
-  match = /<A HREF="(.+)" ADD_DATE="([0-9]+)" .* TAGS="(.*)">(.+)/m.match(a)
+  match = /<A HREF="(.+)" ADD_DATE="([0-9]+)" .* TAGS="(.*)">(.*)/m.match(a)
   raise "'A' tag has unexpected format: #{a.inspect}" if match.nil?
   url = match[1].strip
   add_date = Time.at(match[2].strip.to_i)
   tags = match[3].strip.split(',').reject(&:empty?).each { |tag| remove_bad_substrings(tag) }
   title = remove_bad_substrings(match[4].strip)
-  raise "title is empty: #{a.inspect}" if title.empty?
+  title = '?' if title.empty?  # Evernote doesn't permit empty title
   [url, add_date, tags, title]
 end
 
