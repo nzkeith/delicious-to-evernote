@@ -82,7 +82,7 @@ end
 
 def parse_dd(dd)
   return '' if ['', '</DL><p>'].include?(dd.strip)
-  match = /<DD>(.+)(?:<\/DL><p>.*)?/m.match(dd)
+  match = /<DD>(.+)/m.match(dd)
   raise "'DD' tag has unexpected format: #{dd.inspect}" if match.nil?
   comment = match[1].strip
   match = /(.+)(?:<\/DL><p>.*)/m.match(comment)
