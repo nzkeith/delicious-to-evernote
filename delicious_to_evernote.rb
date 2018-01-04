@@ -76,9 +76,12 @@ end
 
 def parse_dd(dd)
   return '' if ['', '</DL><p>'].include?(dd.strip)
-  match = /<DD>(.+)/m.match(dd)
+  match = /<DD>(.+)(?:<\/DL><p>.*)?/m.match(dd)
   raise "'DD' tag has unexpected format: #{dd.inspect}" if match.nil?
-  match[1].strip
+  comment = match[1].strip
+  match = /(.+)(?:<\/DL><p>.*)/m.match(comment)
+  comment = match[1].strip unless match.nil?
+  comment
 end
 
 def encode_content(comment)
