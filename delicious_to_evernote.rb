@@ -11,7 +11,7 @@ def main
   first_fragment = fragments.shift
   raise "Unexpected first fragment: #{first_fragment}" unless first_fragment.start_with?("<!DOCTYPE")
 
-  builder = Nokogiri::XML::Builder.new do |xml|
+  builder = Nokogiri::XML::Builder.new(encoding: 'utf-8') do |xml|
     xml.doc.create_internal_subset("en-export", nil, "http://xml.evernote.com/pub/evernote-export2.dtd")
     xml.send('en-export', {
         'export-date':"20160926T000000Z",
