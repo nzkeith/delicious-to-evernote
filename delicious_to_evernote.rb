@@ -48,7 +48,13 @@ def main
 end
 
 def process_fragments(fragments)
-  fragments.each { |fragment| yield(process_fragment(fragment)) }
+  fragments.each do |fragment|
+    begin
+      yield(process_fragment(fragment))
+    rescue => ex
+      STDERR.puts ex
+    end
+  end
 end
 
 def process_fragment(fragment)
